@@ -9,13 +9,14 @@ import (
 
 func main() {
 	http.HandleFunc("/", home)
+	fmt.Println("Server is running on port http://localhost:8081")
 }
 
 // Global Scope
 func home(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "home.html")
 
-	fmt.Println("Server is running on port http://localhost:8081")
+	
 
 	err := http.ListenAndServe(":8081", nil)
 	if err != nil {
